@@ -2,6 +2,13 @@ using LinearAlgebra
 
 export Affine
 
+"""
+    Affine()
+    Affine(A, b)
+
+Projection to an affine set such that `Ax = b`.
+"""
+
 struct Affine{T <: Real} <: ConvexSet
     VVt::Matrix{T}
     pinv_A_b::Vector{T}
