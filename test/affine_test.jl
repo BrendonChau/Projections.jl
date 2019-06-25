@@ -1,15 +1,14 @@
 module AffineTest
 
-using Projections, Test, Random
+using Projections, Test
 
 @testset "affine" begin
-Random.seed!(12345);
-A = rand(5, 5)
-b = ones(size(A, 1))
-y = rand(5)
+A = reshape(collect(LinRange(0, 1, 25)), 5, 5)[:, 1:4]
+b = collect(LinRange(1, 5, 5))
+y = ones(size(A, 2))
 @test isapprox(
     project(Affine(A, b), y), 
-    [0.329706,  -0.21199,   0.95313,   1.10365,  -0.36689],
+    [15.36,  9.12,  2.88,  -3.36],
     rtol = 1e-4)
 end
 end

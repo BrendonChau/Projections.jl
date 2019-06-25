@@ -21,7 +21,7 @@ struct Affine{T <: Real} <: ConvexSet
         size(A, 1) == length(b) || throw(ArgumentError(
             "Number of rows of A does not match length of b")
             )
-        A = LinearAlgebra.svd!(A, full = false)
+        A = LinearAlgebra.svd(A, full = false)
         tol = max(rtol * maximum(A.S), atol)
         Σ_pinv = zeros(length(A.S))
         index = A.S .> tol
