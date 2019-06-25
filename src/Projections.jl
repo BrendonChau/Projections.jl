@@ -1,5 +1,7 @@
 __precompile__()
 
+using LinearAlgebra
+
 module Projections
 
 export project, project!
@@ -24,5 +26,6 @@ function project(); end
 include("box.jl")
 include("ball.jl")
 include("simplex.jl")
+include("affine.jl")
 
 end
