@@ -1,7 +1,5 @@
 __precompile__()
 
-using LinearAlgebra
-
 module Projections
 
 export project, project!
