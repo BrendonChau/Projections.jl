@@ -21,7 +21,6 @@ struct Affine{T <: Real} <: ConvexSet
         Σ_pinv[index] = 1. ./ A.S[index]
         Σ_pinv[findall(.!isfinite.(Σ_pinv))] .= 0.
         VVt = A.V * A.Vt
-        display(Σ_pinv)
         pinv_A_b = A.V * Diagonal(Σ_pinv) * transpose(A.U) * b
         new{T}(VVt, pinv_A_b)
     end
